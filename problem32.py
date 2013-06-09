@@ -7,17 +7,21 @@ def check(i, j, k):
     l = li + lj + lk
     if 0 in l:
         return False
-    elif len(set(l)) == 9:
+    elif len(set(l)) == 9 and len(l) == 9:
         return True
     else:
         return False
 
-ans = 0
-for i in range(1, 10000):
-    for j in range(1, 10000):
-        k = i * j 
+ans = []
+
+for i in range(1, 100):
+    for j in reversed(range(100, 10000)):
+        k = i * j
         if check(i, j, k):
-            ans += k
-print ans
+            ans.append(k)
 
-
+tmp = 0
+for i in set(ans):
+    print i
+    tmp += i
+print tmp
