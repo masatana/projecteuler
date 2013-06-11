@@ -13,13 +13,15 @@ def check(i, j, k):
         return False
 
 ans = []
-for i in range(1, 1001):
-    for j in range(i, 10001):
-        k  = i * j
+
+for i in range(1, 100):
+    for j in reversed(range(100, 10000)):
+        k = i * j
         if check(i, j, k):
             ans.append(k)
 
-a = 1
+tmp = 0
 for i in set(ans):
-    a *= i
-print a
+    print i
+    tmp += i
+print tmp
