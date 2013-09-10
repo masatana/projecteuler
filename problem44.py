@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import itertools
+import math
 
-dic = {}
 def f(n):
     i = 1
     while True:
@@ -14,29 +14,29 @@ def g():
     while True:
         yield i * (3 * i - 1) / 2
         i += 1
+def a():
+    i = 1
+    while True:
+        yield i * (3 * i - 1) / 2
+        i += 1
+
 
 def h(n):
     return n * (3 * n - 1) / 2
 
 def check(n):
-    i = 1
-    while True:
-        c = 2 * n - 3 * i ** 2 + i
-        if  c == 0:
-            return True
-        elif c > 0:
-            return False
-        else:
-            i += 1
+    x = (1 + math.sqrt(1 + 24 * n)) / 6.0
+    return int(x) == x
 
-
-for d in g():
-    i = 1
-    print(d)
-    while (3 * i - 2) < d:
-        for j in range(1, i):
-            if check(dic.setdefault(i, h(i)) + dic.setdefault(j, h(j))):
-                print(d)
-                exit()
-            print(i, j)
-        i += 1
+def test():
+    dic = []
+    for d in g():
+        dic.append(d)
+        for e in dic:
+            if check(d + e):
+                print(d - e)
+                if d - e in dic:
+                    print(d - e)
+                    exit()
+if __name__ == '__main__':
+    test()
