@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
+import math
+import doctest
 
 def gen_triangle_numbers():
     i = 1
@@ -64,3 +66,36 @@ def is_pandigital(n, h):
         return True
     else:
         return False
+
+def is_triangle(n):
+    """
+    >>> is_triangle(10)
+    True
+    >>> is_triangle(12)
+    False
+    """
+    x = (1 + math.sqrt(1 + 8 * n)) / 2.0
+    return int(x) == n
+
+def is_pentagonal(n):
+    """
+    >>> is_pentagonal(12)
+    True
+    >>> is_pentagonal(14)
+    False
+    """
+    x = (1 + math.sqrt(1 + 24 * n)) / 6.0
+    return int(x) == n
+
+def is_hexagonal(n):
+    """
+    >>> is_hexagonal(15)
+    True
+    >>> is_hexagonal(18)
+    False
+    """
+    x = (1 + math.sqrt(1 + 8 * n)) / 4.0
+    return int(x) == n
+
+if __name__ == '__main__':
+    doctest.testmod()
