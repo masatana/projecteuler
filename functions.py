@@ -18,13 +18,11 @@ def gen_prime_numbers():
     D = {}
     q = 2
     while True:
-        print(D, q)
         if q not in D:
             yield q
             D[q * q] = [q]
         else:
             for p in D[q]:
-                print(p)
                 D.setdefault(p + q, []).append(p)
             del D[q]
         q += 1
@@ -96,6 +94,18 @@ def is_hexagonal(n):
     """
     x = (1 + math.sqrt(1 + 8 * n)) / 4.0
     return int(x) == x
+
+def is_integer(n):
+    """
+    >>> is_integer(1.0)
+    True
+    >>> is_integer(1.2)
+    False
+    """
+    if isinstance(n, float):
+        return int(n) == n
+    else:
+        return False
 
 if __name__ == '__main__':
     doctest.testmod()
