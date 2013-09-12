@@ -107,5 +107,10 @@ def is_integer(n):
     else:
         return False
 
+def ngram(l, n):
+    for i in xrange(len(l)):
+        for j in xrange(i + n, min(len(l), i + n) + 1):
+            yield l[i:j]
+
 if __name__ == '__main__':
     doctest.testmod()
