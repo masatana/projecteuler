@@ -97,5 +97,11 @@ def is_hexagonal(n):
     x = (1 + math.sqrt(1 + 8 * n)) / 4.0
     return int(x) == x
 
+def ngram(l, n):
+    for i in xrange(len(l)):
+        for j in xrange(i + n, min(len(l), i + n) + 1):
+            yield l[i:j]
+
+
 if __name__ == '__main__':
     doctest.testmod()
