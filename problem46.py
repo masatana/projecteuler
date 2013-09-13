@@ -5,7 +5,7 @@ import math
 x = 4
 l = []
 while True:
-    if x > 1000:
+    if x > 10000:
         break
     if x % 2 == 0:
         x += 1
@@ -19,7 +19,7 @@ while True:
             break
         tmp = math.sqrt((x - p) / 2.0)
         if functions.is_integer(tmp):
-            print(x, p, int(tmp))
+            # print(x, p, int(tmp))
             break
         else:
             pass
