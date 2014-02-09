@@ -39,6 +39,8 @@ def sieve(n):
             mark(s, x)
     return [i for i in range(2, n) if s[i]]
 def is_prime(n, k = 10):
+    if n == 2:
+        return True
     if n & 1 == 0:
         return False
 
@@ -53,6 +55,20 @@ def is_prime(n, k = 10):
             y = pow(y, 2, n)
             t <<= 1
         if not y == n - 1 and t & 1 == 0:
+            return False
+    return True
+
+def is_prime_2(n, k = 10000):
+    if n == 2:
+        return True
+    if n < 2 or n & 1 == 0:
+        return False
+    for i in range(3, k):
+        x, y = n, i
+        while y:
+            x,y = y, x % y
+        if x != 1: continue
+        if pow(i, n - 1, n) != 1:
             return False
     return True
 
